@@ -1,10 +1,10 @@
 import { Route } from 'react-router-dom'
 import React, { Component } from 'react'
 import Home from './components/home/Home'
-import AnimalCard from './components/animal/AnimalCard'
-import LocationCard from './components/location/LocationCard'
-import EmployeeCard from './components/employee/EmployeeCard'
-import OwnerCard from './components/owner/OwnerCard'
+import AnimalList from './components/animal/AnimalList'
+import LocationList from './components/location/LocationList'
+import EmployeeList from './components/employee/EmployeeList'
+import OwnerList from './components/owner/OwnerList'
 
 
 class ApplicationViews extends Component {
@@ -16,16 +16,16 @@ class ApplicationViews extends Component {
           return <Home />
         }} />
         <Route path="/animals" render={(props) => {
-          return <AnimalCard />
+          return <AnimalList />
         }} />
          <Route path="/locations" render={(props) => {
-          return <LocationCard />
+          return <LocationList />
         }} />
          <Route path="/owners" render={(props) => {
-          return <OwnerCard />
+          return <OwnerList />
         }} />
          <Route path="/employees" render={(props) => {
-          return <EmployeeCard />
+          return <EmployeeList />
         }} />
         
       </React.Fragment>
