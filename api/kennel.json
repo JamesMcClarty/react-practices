@@ -1,0 +1,25 @@
+{
+    "animals": [
+        { "id": 1, "name": "Doodles", "breed": "Poodle", "ownerId":[1,2]},
+        { "id": 2, "name": "Decker", "breed": "German Sheperd", "ownerId":[3] },
+        { "id": 3, "name": "Esme", "breed": "Pitbull", "ownerId":[4] }
+    ],
+
+    "owners":[
+        {"id":1, "name":"Jim McClarty", "phone":"555-1234"},
+        {"id":2, "name":"James McClarty", "phone":"555-6542"},
+        {"id":3, "name":"Nick Riveara", "phone":"555-7547"},
+        {"id":4, "name":"Bill Watterson", "phone":"555-9653"}
+    ],
+
+    "locations":[
+        {"id":1, "locationName":"North Nashville", "phone":"555-1234"},
+        {"id":2, "locationName":"South Nashville", "phone":"555-1234"}
+    ],
+    "employees":[
+        {"id":1, "employeeName":"Lu Kang", "animalId": 1, "locationId":1},
+        {"id":1, "employeeName":"Kung Lao", "animalId": 2, "locationId":1},
+        {"id":1, "employeeName":"Johnney Cage", "animalId": 3, "locationId":2},
+        {"id":1, "employeeName":"Sonya Blade", "animalId": 3, "locationId":2}
+    ]
+}
