@@ -21,14 +21,16 @@ componentDidMount(){
 }
 
 render(){
-    console.log("ANIMAL LIST: Render");
-
+    console.log("AnimalList: Render");
+  
     return(
-        <div className="container-cards">
-            {this.state.animals.map(animal => <AnimalCard />)}
-        </div>
+      <div className="container-cards">
+        {this.state.animals.map(animal =>
+          <AnimalCard key={animal.id} animal={animal} />
+        )}
+      </div>
     )
-}
+  }
 }
 
 export default AnimalList
