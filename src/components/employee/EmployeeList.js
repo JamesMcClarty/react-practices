@@ -9,26 +9,30 @@ class EmployeeList extends Component {
         employees: [],
     }
 
-componentDidMount(){
-    console.log("Employee LIST: ComponentDidMount");
-    //getAll from EmployeeManager and hang on to that data; put it in state
-    EmployeeManager.getAll()
-    .then((data) => {
-        this.setState({
-            employees: data
-        })
-    })
-}
+    componentDidMount() {
+        console.log("Employee LIST: ComponentDidMount");
+        //getAll from EmployeeManager and hang on to that data; put it in state
+        EmployeeManager.getAll()
+            .then((data) => {
+                this.setState({
+                    employees: data
+                })
+            })
+    }
 
-render(){
-    console.log("Employee LIST: Render");
-
-    return(
-        <div className="container-cards">
-            {this.state.employees.map(employee => <EmployeeCard />)}
-        </div>
-    )
-}
+    render() {
+        console.log("EmployeeList: Render");
+        return (
+            <div>
+                <h3>Employees:</h3>
+                <div className="container-cards">
+                    {this.state.employees.map(employee =>
+                        <EmployeeCard key={employee.id} employee={employee} />
+                    )}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default EmployeeList
