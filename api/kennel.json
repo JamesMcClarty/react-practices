@@ -2,16 +2,16 @@
   "animals": [
     {
       "id": 2,
-      "name": "Esme",
-      "breed": "Pitbull",
+      "name": "James",
+      "breed": "German Shepard",
       "ownerId": [
         2
       ]
     },
     {
       "id": 3,
-      "name": "Esme",
-      "breed": "Pitbull",
+      "name": "Megan",
+      "breed": "Shih Tzu",
       "ownerId": [
         3
       ]
@@ -44,9 +44,14 @@
   ],
   "locations": [
     {
+      "id": 1,
+      "locationName": "North Nashville",
+      "phone": "555-1234"
+    },
+    {
       "id": 2,
       "locationName": "South Nashville",
-      "phone": "555-1234"
+      "phone": "555-4321"
     }
   ],
   "employees": [
