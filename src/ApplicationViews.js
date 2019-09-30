@@ -5,6 +5,8 @@ import AnimalList from './components/animal/AnimalList'
 import LocationList from './components/location/LocationList'
 import EmployeeList from './components/employee/EmployeeList'
 import OwnerList from './components/owner/OwnerList'
+import AnimalDetail from './components/animal/AnimalDetail'
+import LocationDetail from './components/location/LocationDetail'
 
 
 class ApplicationViews extends Component {
@@ -15,19 +17,27 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
-        <Route path="/animals" render={(props) => {
+        <Route exact path="/animals" render={(props) => {
           return <AnimalList />
         }} />
-         <Route path="/locations" render={(props) => {
+                <Route path="/animals/:animalId(\d+)" render={(props) => {
+          // Pass the animalId to the AnimalDetailComponent
+          return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+        }} />
+        <Route exact path="/locations" render={(props) => {
           return <LocationList />
         }} />
-         <Route path="/owners" render={(props) => {
+                <Route path="/locations/:locationId(\d+)" render={(props) => {
+          // Pass the animalId to the AnimalDetailComponent
+          return <LocationDetail locationId={parseInt(props.match.params.locationId)} />
+        }} />
+        <Route path="/owners" render={(props) => {
           return <OwnerList />
         }} />
-         <Route path="/employees" render={(props) => {
+        <Route path="/employees" render={(props) => {
           return <EmployeeList />
         }} />
-        
+
       </React.Fragment>
     )
   }
