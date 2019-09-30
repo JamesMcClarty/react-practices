@@ -9,26 +9,38 @@ class AnimalList extends Component {
         animals: [],
     }
 
-componentDidMount(){
-    console.log("ANIMAL LIST: ComponentDidMount");
-    //getAll from AnimalManager and hang on to that data; put it in state
-    AnimalManager.getAll()
-    .then((animals) => {
-        this.setState({
-            animals: animals
-        })
-    })
-}
+    deleteAnimal = id => {
+        AnimalManager.delete(id)
+            .then(() => {
+                AnimalManager.getAll()
+                    .then((newAnimals) => {
+                        this.setState({
+                            animals: newAnimals
+                        })
+                    })
+            })
+    }
 
-render(){
-    console.log("ANIMAL LIST: Render");
+    componentDidMount() {
+        console.log("ANIMAL LIST: ComponentDidMount");
+        //getAll from AnimalManager and hang on to that data; put it in state
+        AnimalManager.getAll()
+            .then((animals) => {
+                this.setState({
+                    animals: animals
+                })
+            })
+    }
 
-    return(
-        <div className="container-cards">
-            {this.state.animals.map(animal => <AnimalCard />)}
-        </div>
-    )
-}
+    render() {
+        console.log("ANIMAL LIST: Render");
+
+        return (
+            <div className="container-cards">
+                {this.state.animals.map(animal => <AnimalCard />)}
+            </div>
+        )
+    }
 }
 
 export default AnimalList
