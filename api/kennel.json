@@ -18,8 +18,8 @@
     ],
     "employees":[
         {"id":1, "employeeName":"Lu Kang", "animalId": 1, "locationId":1},
-        {"id":1, "employeeName":"Kung Lao", "animalId": 2, "locationId":1},
-        {"id":1, "employeeName":"Johnney Cage", "animalId": 3, "locationId":2},
-        {"id":1, "employeeName":"Sonya Blade", "animalId": 3, "locationId":2}
+        {"id":2, "employeeName":"Kung Lao", "animalId": 2, "locationId":1},
+        {"id":3, "employeeName":"Johnney Cage", "animalId": 3, "locationId":2},
+        {"id":4, "employeeName":"Sonya Blade", "animalId": 3, "locationId":2}
     ]
 }
