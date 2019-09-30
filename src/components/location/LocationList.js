@@ -9,26 +9,31 @@ class LocationList extends Component {
         locations: [],
     }
 
-componentDidMount(){
-    console.log("Location LIST: ComponentDidMount");
-    //getAll from LocationManager and hang on to that data; put it in state
-    LocationManager.getAll()
-    .then((data) => {
-        this.setState({
-            Locations: data
-        })
-    })
-}
+    componentDidMount() {
+        console.log("Location LIST: ComponentDidMount");
+        //getAll from LocationManager and hang on to that data; put it in state
+        LocationManager.getAll()
+            .then((data) => {
+                this.setState({
+                    locations: data
+                })
+            })
+    }
 
-render(){
-    console.log("Location LIST: Render");
+    render() {
+        console.log("Location LIST: Render");
 
-    return(
-        <div className="container-cards">
-            {this.state.locations.map(location => <LocationCard />)}
-        </div>
-    )
-}
+        return (
+            <div>
+                <h3>Locations:</h3>
+                <div className="container-cards">
+                    {this.state.locations.map(location =>
+                        <LocationCard key={location.id} location={location} />
+                    )}
+                </div>
+            </div>
+        )
+    }
 }
 
 export default LocationList
