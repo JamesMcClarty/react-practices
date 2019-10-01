@@ -39,7 +39,31 @@
       "id": 1,
       "locationName": "north Nashville",
       "phone": "555-1234"
+    },
+    {
+      "id": 2,
+      "locationName": "south Nashville",
+      "phone": "555-4321"
     }
   ],
-  "employees": []
+  "employees": [
+    {
+      "id":1,
+      "employeeName":"Sonya Blade",
+      "animalId": 1,
+      "locationId": 1
+    },
+    {
+      "id":2,
+      "employeeName":"Johnny Cage",
+      "animalId": 2,
+      "locationId": 2
+    },
+    {
+      "id":3,
+      "employeeName":"Cassie Cage",
+      "animalId": 3,
+      "locationId": 1
+    },
+  ]
 }

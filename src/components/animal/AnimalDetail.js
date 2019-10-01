@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
+import {firstLetterCase} from '../../modules/Helpers';
 
 class AnimalDetail extends Component {
 
@@ -36,7 +37,7 @@ class AnimalDetail extends Component {
             <picture>
               <img src={require('./dog.svg')} alt="My Dog" />
             </picture>
-            <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(this.state.name)}</span></h3>
             <p>Breed: {this.state.breed}</p>
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
           </div>
