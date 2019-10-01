@@ -7,6 +7,7 @@ import EmployeeList from './components/employee/EmployeeList'
 import OwnerList from './components/owner/OwnerList'
 import AnimalDetail from './components/animal/AnimalDetail'
 import LocationDetail from './components/location/LocationDetail'
+import AnimalForm from './components/animal/AnimalForm'
 
 
 class ApplicationViews extends Component {
@@ -18,7 +19,10 @@ class ApplicationViews extends Component {
           return <Home />
         }} />
         <Route exact path="/animals" render={(props) => {
-          return <AnimalList />
+          return <AnimalList {...props} />
+        }} />
+        <Route path="/animals/new" render={(props) => {
+          return <AnimalForm {...props} />
         }} />
         <Route path="/animals/:animalId(\d+)" render={(props) => {
           // Pass the animalId to the AnimalDetailComponent
