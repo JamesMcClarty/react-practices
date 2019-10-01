@@ -2,7 +2,7 @@
   "animals": [
     {
       "id": 3,
-      "name": "Megan",
+      "name": "megan",
       "breed": "Shiba Inu",
       "ownerId": [
         3
@@ -10,7 +10,7 @@
     },
     {
       "id": 4,
-      "name": "Esme",
+      "name": "esme",
       "breed": "Pitbull",
       "ownerId": [
         3
@@ -37,7 +37,7 @@
   "locations": [
     {
       "id": 1,
-      "locationName": "North Nashville",
+      "locationName": "north Nashville",
       "phone": "555-1234"
     }
   ],

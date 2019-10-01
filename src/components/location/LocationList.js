@@ -40,7 +40,7 @@ class LocationList extends Component {
                 <h3>Locations:</h3>
                 <div className="container-cards">
                     {this.state.locations.map(location =>
-                        <LocationCard key={location.id} location={location} deleteLocation = {this.deleteLocation}/>
+                        <LocationCard key={location.id} object={location} deleteLocation = {this.deleteLocation}/>
                     )}
                 </div>
             </div>
