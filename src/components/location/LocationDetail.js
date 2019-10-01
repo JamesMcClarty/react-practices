@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LocationManager from '../../modules/LocationManager';
+import {firstLetterCase} from '../../modules/Helpers'
 //import './AnimalDetail.css'
 
 class LocationDetail extends Component {
@@ -34,7 +35,7 @@ class LocationDetail extends Component {
     return (
       <div className="card">
         <div className="card-content">
-            <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(this.state.name)}</span></h3>
             <p>Phone Number: {this.state.phone}</p>
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete</button>
         </div>
