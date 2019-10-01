@@ -1,17 +1,9 @@
 {
   "animals": [
     {
-      "id": 2,
-      "name": "James",
-      "breed": "German Shepard",
-      "ownerId": [
-        2
-      ]
-    },
-    {
       "id": 3,
       "name": "Megan",
-      "breed": "Shih Tzu",
+      "breed": "Shiba Inu",
       "ownerId": [
         3
       ]
@@ -47,19 +39,7 @@
       "id": 1,
       "locationName": "North Nashville",
       "phone": "555-1234"
-    },
-    {
-      "id": 2,
-      "locationName": "South Nashville",
-      "phone": "555-4321"
     }
   ],
-  "employees": [
-    {
-      "id": 4,
-      "employeeName": "Sonya Blade",
-      "animalId": 3,
-      "locationId": 2
-    }
-  ]
+  "employees": []
 }
