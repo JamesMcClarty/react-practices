@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import EmployeeManager from '../../modules/EmployeeManager';
 import LocationManager from '../../modules/LocationManager';
 import AnimalManager from '../../modules/AnimalManager';
-import './EmployeeForm.css'
+import './EmployeeForm.css';
+import {firstLetterCase} from '../../modules/Helpers';
 
 class EmployeeForm extends Component {
     state = {
@@ -10,6 +11,8 @@ class EmployeeForm extends Component {
         animalId: "",
         locationId: "",
         loadingStatus: false,
+        locationList: [],
+        animalList: []
     };
 
     handleFieldChange = evt => {
@@ -18,12 +21,29 @@ class EmployeeForm extends Component {
         this.setState(stateToChange);
     };
 
+    componentDidMount() {
+        console.log("Location in Employee form: ComponentDidMount");
+        LocationManager.getAll()
+            .then((data) => {
+                console.log(data)
+                this.setState({
+                    locationList: data
+                })
+            })
+        AnimalManager.getAll()
+            .then((data) => {
+                this.setState({
+                    animalList: data
+                })
+            })
+    }
+
     /*  Local method for validation, set loadingStatus, create animal 
     object, invoke the AnimalManager post method, and redirect to the full animal list
     */
     constructNewEmployees = evt => {
         evt.preventDefault();
-        if (this.state.employeeName === "" || this.state.animalId === "" ||this.state.locationId === "") {
+        if (this.state.employeeName === "" || this.state.animalId === "" || this.state.locationId === "") {
             window.alert("Please input a name, loction they work, and animal in care.");
         } else {
             this.setState({ loadingStatus: true });
@@ -35,48 +55,59 @@ class EmployeeForm extends Component {
 
             // Create the animal and redirect user to animal list
             EmployeeManager.post(employee)
-            .then(() => this.props.history.push("/employees"));
+                .then(() => this.props.history.push("/employees"));
         }
     };
 
-    render(){
+    render() {
 
-        return(
+
+        console.log(this.state.animalList)
+        return (
             <>
-            <form>
-                <fieldset>
-                    <div className="formgrid">
-                        <input
-                        type="text"
-                        required
-                        onChange={this.handleFieldChange}
-                        id="employeeName"
-                        placeholder="Employee name"
-                        />
-                        <label htmlFor="employeeName">Name</label>
-                        <select 
-                        required
-                        onChange={this.handleFieldChange}
-                        id="animalId">
-                            {AnimalManager.getAll().then(animals =>{
-                                animals.forEach()
-                            })}
-                        </select>
-                        />
-                        <label htmlFor="breed">Breed</label>
-                    </div>
-                    <div className="alignRight">
-                        <button
-                        type="button"
-                        disabled={this.state.loadingStatus}
-                        onClick={this.constructNewAnimal}
-                        >Submit</button>
-                    </div>
-                </fieldset>
-            </form>
-        </>
+                <form>
+                    <fieldset>
+                        <div>
+                        <p>Select Location:</p>
+                            <input
+                                type="text"
+                                required
+                                onChange={this.handleFieldChange}
+                                id="employeeName"
+                                placeholder="Employee name"
+                            />
+                            <p>Select Location:</p>
+                            <select
+                                required
+                                onChange={this.handleFieldChange}
+                                id="locationId">
+                                {this.state.locationList.map((datafile) =>
+                                    <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.locationName)}</option>
+                                )}
+                            </select>
+                            <p>Select Animal:</p>
+                            <select
+                                required
+                                onChange={this.handleFieldChange}
+                                id="animalId">
+                                {this.state.animalList.map((datafile) =>
+                                    <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.name)}</option>
+                                )}
+                            </select>
+                        </div>
+
+                        <div className="alignRight">
+                            <button
+                                type="button"
+                                disabled={this.state.loadingStatus}
+                                onClick={this.constructNewAnimal}
+                            >Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </>
         )
     }
 }
 
-export default AnimalForm
+export default EmployeeForm
