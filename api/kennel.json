@@ -2,11 +2,8 @@
   "animals": [
     {
       "id": 1,
-      "name": "megan",
-      "breed": "Shiba Inu",
-      "ownerId": [
-        1
-      ]
+      "name": "Meg Marie",
+      "breed": "Shiba Inu"
     },
     {
       "id": 2,
@@ -45,6 +42,11 @@
       "id": 4,
       "name": "Bill Watterson",
       "phone": "555-9653"
+    },
+    {
+      "name": "Megan McClarty",
+      "phone": "901-231-5256",
+      "id": 5
     }
   ],
   "locations": [
@@ -57,6 +59,11 @@
       "id": 2,
       "locationName": "south Nashville",
       "phone": "555-4321"
+    },
+    {
+      "locationName": "My House",
+      "phone": "615-691-0507",
+      "id": 3
     }
   ],
   "employees": [
@@ -77,6 +84,12 @@
       "employeeName": "Cassie Cage",
       "animalId": 3,
       "locationId": 1
+    },
+    {
+      "employeeName": "Jackson Briggs",
+      "animalId": "4",
+      "locationId": "2",
+      "id": 4
     }
   ]
 }

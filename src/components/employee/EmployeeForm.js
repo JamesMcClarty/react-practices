@@ -44,7 +44,7 @@ class EmployeeForm extends Component {
     constructNewEmployees = evt => {
         evt.preventDefault();
         if (this.state.employeeName === "" || this.state.animalId === "" || this.state.locationId === "") {
-            window.alert("Please input a name, loction they work, and animal in care.");
+            window.alert("Please input a name, an animal, and location for hire.");
         } else {
             this.setState({ loadingStatus: true });
             const employee = {
@@ -68,7 +68,7 @@ class EmployeeForm extends Component {
                 <form>
                     <fieldset>
                         <div>
-                        <p>Select Location:</p>
+                        <p>Enter your name:</p>
                             <input
                                 type="text"
                                 required
@@ -100,7 +100,7 @@ class EmployeeForm extends Component {
                             <button
                                 type="button"
                                 disabled={this.state.loadingStatus}
-                                onClick={this.constructNewAnimal}
+                                onClick={this.constructNewEmployees}
                             >Submit</button>
                         </div>
                     </fieldset>
