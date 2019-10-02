@@ -2,11 +2,8 @@
   "animals": [
     {
       "id": 1,
-      "name": "megan",
-      "breed": "Shiba Inu",
-      "ownerId": [
-        1
-      ]
+      "name": "Meg Marie",
+      "breed": "Shiba Inu"
     },
     {
       "id": 2,
@@ -23,55 +20,76 @@
       "ownerId": [
         3
       ]
+    },
+    {
+      "name": "Jake",
+      "breed": "Schnauzer",
+      "id": 4
     }
-],
-"owners": [
-  {
-    "id": 2,
-    "name": "James McClarty",
-    "phone": "555-6542"
-  },
-  {
-    "id": 3,
-    "name": "Nick Riveara",
-    "phone": "555-7547"
-  },
-  {
-    "id": 4,
-    "name": "Bill Watterson",
-    "phone": "555-9653"
-  }
-],
-"locations": [
-  {
-    "id": 1,
-    "locationName": "north Nashville",
-    "phone": "555-1234"
-  },
-  {
-    "id": 2,
-    "locationName": "south Nashville",
-    "phone": "555-4321"
-  }
-],
-"employees": [
-  {
-    "id": 1,
-    "employeeName": "Sonya Blade",
-    "animalId": 1,
-    "locationId": 1
-  },
-  {
-    "id": 2,
-    "employeeName": "Johnny Cage",
-    "animalId": 2,
-    "locationId": 2
-  },
-  {
-    "id": 3,
-    "employeeName": "Cassie Cage",
-    "animalId": 3,
-    "locationId": 1
-  }
-]
+  ],
+  "owners": [
+    {
+      "id": 2,
+      "name": "James McClarty",
+      "phone": "555-6542"
+    },
+    {
+      "id": 3,
+      "name": "Nick Riveara",
+      "phone": "555-7547"
+    },
+    {
+      "id": 4,
+      "name": "Bill Watterson",
+      "phone": "555-9653"
+    },
+    {
+      "name": "Megan McClarty",
+      "phone": "901-231-5256",
+      "id": 5
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "locationName": "north Nashville",
+      "phone": "555-1234"
+    },
+    {
+      "id": 2,
+      "locationName": "south Nashville",
+      "phone": "555-4321"
+    },
+    {
+      "locationName": "My House",
+      "phone": "615-691-0507",
+      "id": 3
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "employeeName": "Sonya Blade",
+      "animalId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 2,
+      "employeeName": "Johnny Cage",
+      "animalId": 2,
+      "locationId": 2
+    },
+    {
+      "id": 3,
+      "employeeName": "Cassie Cage",
+      "animalId": 3,
+      "locationId": 1
+    },
+    {
+      "employeeName": "Jackson Briggs",
+      "animalId": "4",
+      "locationId": "2",
+      "id": 4
+    }
+  ]
 }
