@@ -7,7 +7,7 @@ class AnimalEditForm extends Component {
     state = {
       animalName: "",
       breed: "",
-      loadingStatus: true,
+      loadingStatus: false,
     };
 
     handleFieldChange = evt => {
