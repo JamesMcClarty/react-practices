@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OwnerManager from '../../modules/OwnerManager';
+import AnimalManager from '../../modules/AnimalManager';
 import './OwnerForm.css';
 import {firstLetterCase} from '../../modules/Helpers';
 
@@ -7,6 +8,9 @@ class OwnerForm extends Component {
     state = {
         name: "",
         phone: "",
+        animalId: "",
+        animals: []
+
     };
 
     handleFieldChange = evt => {
@@ -15,9 +19,15 @@ class OwnerForm extends Component {
         this.setState(stateToChange);
     };
 
-    /*  Local method for validation, set loadingStatus, create animal 
-    object, invoke the AnimalManager post method, and redirect to the full animal list
-    */
+    componentDidMount() {
+        AnimalManager.getAll()
+            .then((data) => {
+                this.setState({
+                    animals: data
+                })
+            })
+    }
+
     constructNewOwner = evt => {
         evt.preventDefault();
         if (this.state.name === "" || this.state.phone === "") {
@@ -26,10 +36,9 @@ class OwnerForm extends Component {
             this.setState({ loadingStatus: true });
             const owner = {
                 name: this.state.name,
-                phone: this.state.phone
+                phone: this.state.phone,
+                animalId: this.state.animalId
             };
-
-            // Create the animal and redirect user to animal list
             OwnerManager.post(owner)
                 .then(() => this.props.history.push("/owners"));
         }
@@ -37,8 +46,6 @@ class OwnerForm extends Component {
 
     render() {
 
-
-        console.log(this.state.animalList)
         return (
             <>
                 <form>
@@ -60,7 +67,15 @@ class OwnerForm extends Component {
                                 id="phone"
                                 placeholder="Phone number"
                             />
-                            
+                            <p>Select Animal:</p>
+                            <select
+                                required
+                                onChange={this.handleFieldChange}
+                                id="animalId">
+                                {this.state.animals.map((datafile) =>
+                                    <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.name)}</option>
+                                )}
+                            </select>
                         </div>
 
                         <div className="alignRight">

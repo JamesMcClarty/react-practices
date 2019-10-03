@@ -5,7 +5,7 @@ import AnimalList from './components/animal/AnimalList'
 import LocationList from './components/location/LocationList'
 import EmployeeList from './components/employee/EmployeeList'
 import OwnerList from './components/owner/OwnerList'
-import AnimalDetail from './components/animal/AnimalDetail'
+import AnimalsWithOwners from './components/animal/AnimalsWithOwners'
 import LocationDetail from './components/location/LocationDetail'
 import AnimalForm from './components/animal/AnimalForm'
 import EmployeeForm from './components/employee/EmployeeForm'
@@ -44,10 +44,10 @@ class ApplicationViews extends Component {
             return <Redirect to="/login" />
           }
         }} />
-        <Route exact path="/animals/:animalId(\d+)" render={(props) => {
+        <Route exact path="/animals/:animalId(\d+)/details" render={(props) => {
           // Pass the animalId to the AnimalDetailComponent
           if (this.isAuthenticated()) {
-            return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} />
+            return <AnimalsWithOwners {...props} />
           }
           else {
             return <Redirect to="/login" />
