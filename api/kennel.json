@@ -23,10 +23,16 @@
   ],
   "owners": [
     {
+      "id": 2,
+      "name": "Megan",
+      "phone": "555-9653",
+      "animalId": 1
+    },
+    {
       "id": 4,
       "name": "Bill Watterson",
       "phone": "555-9653",
-      "animalId": 2
+      "animalId": 3
     }
   ],
   "locations": [
@@ -50,25 +56,19 @@
     {
       "id": 1,
       "employeeName": "Jaqi Briggs",
-      "animalId": "4",
-      "locationId": "3"
+      "animalId": 1,
+      "locationId": 3
     },
     {
       "id": 2,
       "employeeName": "Johnny Cage",
-      "animalId": 2,
+      "animalId": 1,
       "locationId": 2
     },
     {
-      "id": 3,
-      "employeeName": "Cassie Cage",
-      "animalId": 3,
-      "locationId": 1
-    },
-    {
       "employeeName": "Jackson Briggs",
-      "animalId": "4",
-      "locationId": "2",
+      "animalId": 2,
+      "locationId": 2,
       "id": 4
     }
   ]

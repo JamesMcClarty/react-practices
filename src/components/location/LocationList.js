@@ -34,7 +34,6 @@ class LocationList extends Component {
 
     render() {
         console.log("Location LIST: Render");
-
         return (
             <div>
                 <h3>Locations:</h3>

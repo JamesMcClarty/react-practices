@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { firstLetterCase } from '../../modules/Helpers'
 
 import "./Animal.css"
+import { format } from 'util';
 
 class AnimalCard extends Component {
   

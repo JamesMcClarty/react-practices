@@ -33,7 +33,6 @@ class EmployeeList extends Component {
     }
 
     render() {
-        console.log("EmployeeList: Render");
         return (
             <div>
                 <h3>Employees:</h3>

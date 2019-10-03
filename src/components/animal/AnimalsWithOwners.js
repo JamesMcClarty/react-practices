@@ -6,18 +6,19 @@ import OwnerCard from '../owner/OwnerCard'
 class AnimalsWithOwners extends Component {
     state = {
         animal: {},
-        owners: []
+        owners: [],
     }
 
     deleteOwner = id => {
         OwnerManager.delete(id)
             .then(() => {
                 AnimalManager.getWithOwners(this.props.match.params.animalId)
-                    .then((newOwners) => {
-                        this.setState({
-                            owners: newOwners
-                        })
-                    })
+            .then((APIResult) => {
+                this.setState({
+                    animal: APIResult,
+                    owners: APIResult.owners,
+                })
+            })
             })
     }
 
@@ -43,6 +44,7 @@ class AnimalsWithOwners extends Component {
                         <OwnerCard
                             key={owner.id}
                             owner={owner}
+                            state = {this.state.loadingStatus}
                             deleteOwner = {this.deleteOwner}
                             {...this.props}
                         />

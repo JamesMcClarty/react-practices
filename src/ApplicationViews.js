@@ -14,6 +14,7 @@ import OwnerForm from './components/owner/OwnerForm'
 import Login from './components/auth/Login'
 import AnimalEditForm from './components/animal/AnimalEditForm'
 import EmployeeEditForm from './components/employee/EmployeeEditForm'
+import LocationsWithEmployees from "./components/location/LocationsWithEmployees"
 
 
 class ApplicationViews extends Component {
@@ -61,10 +62,9 @@ class ApplicationViews extends Component {
             return <Redirect to="/login" />
           }
         }} />
-        <Route path="/locations/:locationId(\d+)" render={(props) => {
-          // Pass the locationId to the LocationDetailComponent
+        <Route path="/locations/:locationId(\d+)/details" render={(props) => {
           if (this.isAuthenticated()) {
-            return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} />
+            return <LocationsWithEmployees {...props} />
           }
           else {
             return <Redirect to="/login" />
