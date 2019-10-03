@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import LocationManager from '../../modules/LocationManager'
 import EmployeeManager from '../../modules/EmployeeManager'
-import EmployeeCard from '../employee/x'
+import EmployeeCard from '../employee/EmployeeCard'
 
 class LocationsWithEmployees extends Component {
     state = {

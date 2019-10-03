@@ -29,6 +29,12 @@
       "animalId": 1
     },
     {
+      "id": 1,
+      "name": "Jimmy",
+      "phone": "555-9653",
+      "animalId": 1
+    },
+    {
       "id": 4,
       "name": "Bill Watterson",
       "phone": "555-9653",
