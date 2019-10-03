@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-import AnimalManager from "../../modules/AnimalManager"
-import "./AnimalForm.css"
+import LocationManager from "../../modules/LocationManager"
+import "./LocationForm.css"
 
 class AnimalEditForm extends Component {
     //set the initial state
     state = {
-      animalName: "",
-      breed: "",
+      locationName: "",
+      phone: "",
       loadingStatus: false,
     };
 
@@ -16,25 +16,25 @@ class AnimalEditForm extends Component {
       this.setState(stateToChange)
     }
 
-    updateExistingAnimal = evt => {
+    updateExistingLocation = evt => {
       evt.preventDefault()
       this.setState({ loadingStatus: true });
-      const editedAnimal = {
-        id: this.props.match.params.animalId,
-        name: this.state.animalName,
-        breed: this.state.breed
+      const editedLocation = {
+        id: this.props.match.params.locationId,
+        locationName: this.state.locationName,
+        phone: this.state.phone
       };
 
-      AnimalManager.update(editedAnimal)
-      .then(() => this.props.history.push("/animals"))
+      LocationManager.update(editedLocation)
+      .then(() => this.props.history.push("/locations"))
     }
 
     componentDidMount() {
-      AnimalManager.get(this.props.match.params.animalId)
-      .then(animal => {
+      LocationManager.get(this.props.match.params.locationId)
+      .then(location => {
           this.setState({
-            animalName: animal.name,
-            breed: animal.breed,
+            locationName: location.locationName,
+            phone: location.phone,
             loadingStatus: false,
           });
       });
@@ -45,7 +45,7 @@ class AnimalEditForm extends Component {
         <>
         <form>
           <fieldset>
-            <div className="formgrid">
+            <div>
               <input
                 type="text"
                 required

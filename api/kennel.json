@@ -8,18 +8,12 @@
     {
       "id": 2,
       "name": "esme",
-      "breed": "Pitbull",
-      "ownerId": [
-        2
-      ]
+      "breed": "Pitbull"
     },
     {
       "id": 3,
       "name": "esme",
-      "breed": "Pitbull",
-      "ownerId": [
-        3
-      ]
+      "breed": "Pitbull"
     },
     {
       "name": "Jake",
@@ -30,23 +24,15 @@
   "owners": [
     {
       "id": 2,
-      "name": "James McClarty",
-      "phone": "555-6542"
-    },
-    {
-      "id": 3,
-      "name": "Nick Riveara",
-      "phone": "555-7547"
+      "name": "Megan",
+      "phone": "555-9653",
+      "animalId": 1
     },
     {
       "id": 4,
       "name": "Bill Watterson",
-      "phone": "555-9653"
-    },
-    {
-      "name": "Megan McClarty",
-      "phone": "901-231-5256",
-      "id": 5
+      "phone": "555-9653",
+      "animalId": 3
     }
   ],
   "locations": [
@@ -69,26 +55,20 @@
   "employees": [
     {
       "id": 1,
-      "employeeName": "Sonya Blade",
+      "employeeName": "Jaqi Briggs",
       "animalId": 1,
-      "locationId": 1
+      "locationId": 3
     },
     {
       "id": 2,
       "employeeName": "Johnny Cage",
-      "animalId": 2,
+      "animalId": 1,
       "locationId": 2
     },
     {
-      "id": 3,
-      "employeeName": "Cassie Cage",
-      "animalId": 3,
-      "locationId": 1
-    },
-    {
       "employeeName": "Jackson Briggs",
-      "animalId": "4",
-      "locationId": "2",
+      "animalId": 2,
+      "locationId": 2,
       "id": 4
     }
   ]

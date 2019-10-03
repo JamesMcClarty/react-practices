@@ -33,7 +33,6 @@ class EmployeeList extends Component {
     }
 
     render() {
-        console.log("EmployeeList: Render");
         return (
             <div>
                 <h3>Employees:</h3>
@@ -46,7 +45,7 @@ class EmployeeList extends Component {
                 </section>
                 <div className="container-cards">
                     {this.state.employees.map(employee =>
-                        <EmployeeCard key={employee.id} employee={employee} deleteEmployee = {this.deleteEmployee}/>
+                        <EmployeeCard key={employee.id} employee={employee} deleteEmployee = {this.deleteEmployee} {...this.props}/>
                     )}
                 </div>
             </div>

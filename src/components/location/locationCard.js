@@ -9,7 +9,7 @@ class LocationCard extends Component {
                 <div className="card-content">
                     <p>Location: {firstLetterCase(this.props.object.locationName)}</p>
                     <p>Phone Number: {this.props.object.phone}</p>
-                    <Link to={`/locations/${this.props.object.id}`}><button>Details</button></Link>
+                    <Link to={`/locations/${this.props.object.id}/details`}><button>Details</button></Link>
                     <button type="button" onClick={() => this.props.deleteLocation(this.props.object.id)}>Remove</button>
                 </div>
             </div>

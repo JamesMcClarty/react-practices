@@ -30,5 +30,9 @@ export default {
       },
       body: JSON.stringify(editedAnimal)
     }).then(data => data.json());
-  }
+  },
+  getWithOwners(id) {
+    return fetch(`${remoteURL}/animals/${id}?_embed=owners`)
+            .then(result => result.json())
+}
 }

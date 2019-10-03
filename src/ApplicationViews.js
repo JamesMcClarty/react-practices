@@ -5,7 +5,7 @@ import AnimalList from './components/animal/AnimalList'
 import LocationList from './components/location/LocationList'
 import EmployeeList from './components/employee/EmployeeList'
 import OwnerList from './components/owner/OwnerList'
-import AnimalDetail from './components/animal/AnimalDetail'
+import AnimalsWithOwners from './components/animal/AnimalsWithOwners'
 import LocationDetail from './components/location/LocationDetail'
 import AnimalForm from './components/animal/AnimalForm'
 import EmployeeForm from './components/employee/EmployeeForm'
@@ -13,6 +13,8 @@ import LocationForm from './components/location/LocationForm'
 import OwnerForm from './components/owner/OwnerForm'
 import Login from './components/auth/Login'
 import AnimalEditForm from './components/animal/AnimalEditForm'
+import EmployeeEditForm from './components/employee/EmployeeEditForm'
+import LocationsWithEmployees from "./components/location/LocationsWithEmployees"
 
 
 class ApplicationViews extends Component {
@@ -43,10 +45,10 @@ class ApplicationViews extends Component {
             return <Redirect to="/login" />
           }
         }} />
-        <Route exact path="/animals/:animalId(\d+)" render={(props) => {
+        <Route exact path="/animals/:animalId(\d+)/details" render={(props) => {
           // Pass the animalId to the AnimalDetailComponent
           if (this.isAuthenticated()) {
-            return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} />
+            return <AnimalsWithOwners {...props} />
           }
           else {
             return <Redirect to="/login" />
@@ -60,10 +62,9 @@ class ApplicationViews extends Component {
             return <Redirect to="/login" />
           }
         }} />
-        <Route path="/locations/:locationId(\d+)" render={(props) => {
-          // Pass the locationId to the LocationDetailComponent
+        <Route path="/locations/:locationId(\d+)/details" render={(props) => {
           if (this.isAuthenticated()) {
-            return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} />
+            return <LocationsWithEmployees {...props} />
           }
           else {
             return <Redirect to="/login" />
@@ -110,6 +111,11 @@ class ApplicationViews extends Component {
         <Route
           path="/animals/:animalId(\d+)/edit" render={props => {
             return <AnimalEditForm {...props} />
+          }}
+        />
+          <Route
+          path="/employees/:employeeId(\d+)/edit" render={props => {
+            return <EmployeeEditForm {...props} />
           }}
         />
 
