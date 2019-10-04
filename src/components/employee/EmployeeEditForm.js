@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import EmployeeManager from "../../modules/EmployeeManager"
-import LocationManager from '../../modules/LocationManager';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './EmployeeForm.css';
 import {firstLetterCase} from '../../modules/Helpers';
 
@@ -29,12 +27,12 @@ class EmployeeEditForm extends Component {
             locationId: parseInt(this.state.locationId)
         };
 
-        EmployeeManager.update(editedEmployee)
+        APIManager.update(editedEmployee, "employees")
             .then(() => this.props.history.push("/employees"))
     }
 
     componentDidMount() {
-        EmployeeManager.get(this.props.match.params.employeeId)
+        APIManager.get(this.props.match.params.employeeId, "employees")
             .then(employee => {
                 this.setState({
                     employeeName: employee.employeeName,
@@ -42,7 +40,7 @@ class EmployeeEditForm extends Component {
                     loadingStatus: false,
                 });
             });
-        LocationManager.getAll()
+        APIManager.getAll("locations")
             .then((data) => {
                 console.log(data)
                 this.setState({

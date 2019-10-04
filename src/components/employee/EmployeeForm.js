@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import EmployeeManager from '../../modules/EmployeeManager';
-import LocationManager from '../../modules/LocationManager';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './EmployeeForm.css';
 import {firstLetterCase} from '../../modules/Helpers';
 
@@ -22,7 +20,7 @@ class EmployeeForm extends Component {
 
     componentDidMount() {
         console.log("Location in Employee form: ComponentDidMount");
-        LocationManager.getAll()
+        APIManager.getAll("locations")
             .then((data) => {
                 console.log(data)
                 this.setState({
@@ -31,9 +29,6 @@ class EmployeeForm extends Component {
             })
     }
 
-    /*  Local method for validation, set loadingStatus, create animal 
-    object, invoke the AnimalManager post method, and redirect to the full animal list
-    */
     constructNewEmployees = evt => {
         evt.preventDefault();
         if (this.state.employeeName === "" || this.state.locationId === "") {
@@ -46,7 +41,7 @@ class EmployeeForm extends Component {
             };
 
             // Create the animal and redirect user to animal list
-            EmployeeManager.post(employee)
+            APIManager.post(employee, "employees")
                 .then(() => this.props.history.push("/employees"));
         }
     };

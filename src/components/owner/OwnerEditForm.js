@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-import OwnerManager from "../../modules/OwnerManager"
-import AnimalManager from "../../modules/AnimalManager"
+import APIManager from "../../modules/APIManager"
 import "./OwnerForm.css"
 import {firstLetterCase} from "../../modules/Helpers"
 
@@ -30,20 +29,19 @@ class LocationEditForm extends Component {
             animalId: this.state.animalId
         };
 
-        OwnerManager.update(editedOwner)
+        APIManager.update(editedOwner, "owners")
             .then(() => this.props.history.push("/owners"))
     }
 
     componentDidMount() {
-        AnimalManager.getAll()
+        APIManager.getAll("animals")
             .then((data) => {
                 this.setState({
                     animals: data
                 })
-                console.log(data)
             })
             
-        OwnerManager.get(this.props.match.params.ownerId)
+        APIManager.get(this.props.match.params.ownerId, "owners")
             .then(owner => {
                 this.setState({
                     name: owner.name,

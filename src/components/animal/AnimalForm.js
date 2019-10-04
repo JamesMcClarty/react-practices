@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './AnimalForm.css'
 
 class AnimalForm extends Component {
@@ -30,7 +30,7 @@ class AnimalForm extends Component {
             };
 
             // Create the animal and redirect user to animal list
-            AnimalManager.post(animal)
+            APIManager.post(animal, "animals")
             .then(() => this.props.history.push("/animals"));
         }
     };
