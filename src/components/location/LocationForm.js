@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LocationManager from '../../modules/LocationManager';
+import APIManager from '../../modules/APIManager';
 import './LocationForm.css';
 import {firstLetterCase} from '../../modules/Helpers';
 
@@ -30,15 +30,12 @@ class LocationForm extends Component {
             };
 
             // Create the animal and redirect user to animal list
-            LocationManager.post(location)
+            APIManager.post(location, "locations")
                 .then(() => this.props.history.push("/locations"));
         }
     };
 
     render() {
-
-
-        console.log(this.state.animalList)
         return (
             <>
                 <form>

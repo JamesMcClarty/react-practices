@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Meg Marie",
-      "breed": "Shiba Inu"
+      "breed": "German Shepard"
     },
     {
       "id": 2,
@@ -25,32 +25,27 @@
     {
       "id": 2,
       "name": "Megan",
-      "phone": "555-9653",
-      "animalId": 1
-    },
-    {
-      "id": 1,
-      "name": "Jimmy",
-      "phone": "555-9653",
-      "animalId": 1
+      "phone": "555-6354",
+      "animalId": "4"
     },
     {
       "id": 4,
       "name": "Bill Watterson",
       "phone": "555-9653",
       "animalId": 3
+    },
+    {
+      "name": "sdfaaf",
+      "phone": "901-231-5256",
+      "animalId": 2,
+      "id": 5
     }
   ],
   "locations": [
     {
       "id": 1,
-      "locationName": "north Nashville",
-      "phone": "555-1234"
-    },
-    {
-      "id": 2,
-      "locationName": "south Nashville",
-      "phone": "555-4321"
+      "locationName": "East Nashville",
+      "phone": "555-5553"
     },
     {
       "locationName": "My House",
@@ -62,20 +57,17 @@
     {
       "id": 1,
       "employeeName": "Jaqi Briggs",
-      "animalId": 1,
       "locationId": 3
     },
     {
       "id": 2,
-      "employeeName": "Johnny Cage",
-      "animalId": 1,
-      "locationId": 2
+      "employeeName": "Hanzo Hasashi",
+      "locationId": 3
     },
     {
-      "employeeName": "Jackson Briggs",
-      "animalId": 2,
-      "locationId": 2,
-      "id": 4
+      "id": 5,
+      "employeeName": "Hashman",
+      "locationId": 3
     }
   ]
 }

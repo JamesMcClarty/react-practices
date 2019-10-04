@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import OwnerManager from '../../modules/OwnerManager';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './OwnerForm.css';
 import {firstLetterCase} from '../../modules/Helpers';
 
@@ -20,7 +19,7 @@ class OwnerForm extends Component {
     };
 
     componentDidMount() {
-        AnimalManager.getAll()
+        APIManager.getAll("animals")
             .then((data) => {
                 this.setState({
                     animals: data
@@ -37,9 +36,9 @@ class OwnerForm extends Component {
             const owner = {
                 name: this.state.name,
                 phone: this.state.phone,
-                animalId: this.state.animalId
+                animalId: parseInt(this.state.animalId)
             };
-            OwnerManager.post(owner)
+            APIManager.post(owner, "owners")
                 .then(() => this.props.history.push("/owners"));
         }
     };

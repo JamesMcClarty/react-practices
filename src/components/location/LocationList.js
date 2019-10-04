@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import the components we will need
 import LocationCard from './LocationCard'
-import LocationManager from '../../modules/LocationManager'
+import APIManager from '../../modules/APIManager'
 
 class LocationList extends Component {
     //define what this component needs to render
@@ -10,9 +10,9 @@ class LocationList extends Component {
     }
 
     deleteLocation = id => {
-        LocationManager.delete(id)
+        APIManager.delete(id, "locations")
             .then(() => {
-                LocationManager.getAll()
+                APIManager.getAll("locations")
                     .then((newLocations) => {
                         this.setState({
                             locations: newLocations
@@ -24,7 +24,7 @@ class LocationList extends Component {
     componentDidMount() {
         console.log("Location LIST: ComponentDidMount");
         //getAll from LocationManager and hang on to that data; put it in state
-        LocationManager.getAll()
+        APIManager.getAll("locations")
             .then((data) => {
                 this.setState({
                     locations: data
@@ -44,7 +44,7 @@ class LocationList extends Component {
                     </button>
                 <div className="container-cards">
                     {this.state.locations.map(location =>
-                        <LocationCard key={location.id} object={location} deleteLocation={this.deleteLocation} />
+                        <LocationCard key={location.id} object={location} deleteLocation={this.deleteLocation} {...this.props}/>
                     )}
                 </div>
             </div>

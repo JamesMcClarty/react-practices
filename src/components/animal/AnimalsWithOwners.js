@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import AnimalManager from '../../modules/AnimalManager'
-import OwnerManager from '../../modules/OwnerManager'
+import APIManager from '../../modules/APIManager'
 import OwnerCard from '../owner/OwnerCard'
 
 class AnimalsWithOwners extends Component {
@@ -10,9 +9,9 @@ class AnimalsWithOwners extends Component {
     }
 
     deleteOwner = id => {
-        OwnerManager.delete(id)
+        APIManager.delete(id, "owners")
             .then(() => {
-                AnimalManager.getWithOwners(this.props.match.params.animalId)
+                APIManager.getObjectWithDatabase(this.props.match.params.animalId, "animals", "owners")
             .then((APIResult) => {
                 this.setState({
                     animal: APIResult,
@@ -24,7 +23,7 @@ class AnimalsWithOwners extends Component {
 
     componentDidMount() {
         //got here now make call to get animal with owners
-        AnimalManager.getWithOwners(this.props.match.params.animalId)
+        APIManager.getObjectWithDatabase(this.props.match.params.animalId, "animals", "owners")
             .then((APIResult) => {
                 this.setState({
                     animal: APIResult,

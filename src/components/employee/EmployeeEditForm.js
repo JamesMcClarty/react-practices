@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import EmployeeManager from "../../modules/EmployeeManager"
-import LocationManager from '../../modules/LocationManager';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './EmployeeForm.css';
 import {firstLetterCase} from '../../modules/Helpers';
 
@@ -9,11 +7,9 @@ class EmployeeEditForm extends Component {
     //set the initial state
     state = {
         employeeName: "",
-        animalId: "",
         locationId: "",
         loadingStatus: false,
         locationList: [],
-        animalList: []
     };
 
     handleFieldChange = evt => {
@@ -28,35 +24,27 @@ class EmployeeEditForm extends Component {
         const editedEmployee = {
             id: this.props.match.params.employeeId,
             employeeName: this.state.employeeName,
-            animalId: this.state.animalId,
-            locationId: this.state.locationId
+            locationId: parseInt(this.state.locationId)
         };
 
-        EmployeeManager.update(editedEmployee)
+        APIManager.update(editedEmployee, "employees")
             .then(() => this.props.history.push("/employees"))
     }
 
     componentDidMount() {
-        EmployeeManager.get(this.props.match.params.employeeId)
+        APIManager.get(this.props.match.params.employeeId, "employees")
             .then(employee => {
                 this.setState({
                     employeeName: employee.employeeName,
-                    animalId: employee.animalId,
                     locationId: employee.locationId,
                     loadingStatus: false,
                 });
             });
-        LocationManager.getAll()
+        APIManager.getAll("locations")
             .then((data) => {
                 console.log(data)
                 this.setState({
                     locationList: data
-                })
-            })
-        AnimalManager.getAll()
-            .then((data) => {
-                this.setState({
-                    animalList: data
                 })
             })
     }
@@ -85,17 +73,6 @@ class EmployeeEditForm extends Component {
                                     <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.locationName)}</option>
                                 )}
                             </select>
-                            <p>Select Animal:</p>
-                            <select
-                                required
-                                onChange={this.handleFieldChange}
-                                id="animalId"
-                                value={this.animalId}>
-                                {this.state.animalList.map((datafile) =>
-                                    <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.name)}</option>
-                                )}
-                            </select>
-
                             <div className="alignRight">
                                 <button
                                     type="button" disabled={this.state.loadingStatus}

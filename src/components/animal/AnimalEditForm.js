@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import AnimalManager from "../../modules/AnimalManager"
+import APIManager from "../../modules/APIManager"
 import "./AnimalForm.css"
 
 class AnimalEditForm extends Component {
@@ -25,12 +25,12 @@ class AnimalEditForm extends Component {
         breed: this.state.breed
       };
 
-      AnimalManager.update(editedAnimal)
+      APIManager.update(editedAnimal, "animals")
       .then(() => this.props.history.push("/animals"))
     }
 
     componentDidMount() {
-      AnimalManager.get(this.props.match.params.animalId)
+      APIManager.get(this.props.match.params.animalId, "animals")
       .then(animal => {
           this.setState({
             animalName: animal.name,

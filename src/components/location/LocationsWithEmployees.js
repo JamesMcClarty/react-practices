@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import LocationManager from '../../modules/LocationManager'
-import EmployeeManager from '../../modules/EmployeeManager'
+import APIManager from '../../modules/APIManager'
 import EmployeeCard from '../employee/EmployeeCard'
 
 class LocationsWithEmployees extends Component {
@@ -10,14 +9,14 @@ class LocationsWithEmployees extends Component {
     }
 
     deleteEmployee = id => {
-        EmployeeManager.delete(id)
+        APIManager.delete(id, "employees")
             .then(() => {
               this.componentDidMount()
             })
     }
 
     componentDidMount() {
-        LocationManager.getWithEmployees(this.props.match.params.locationId)
+        APIManager.getObjectWithDatabase(this.props.match.params.locationId, "locations", "employees")
             .then((APIResult) => {
                 this.setState({
                     location: APIResult,
