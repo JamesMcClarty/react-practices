@@ -37,7 +37,7 @@ class OwnerForm extends Component {
             const owner = {
                 name: this.state.name,
                 phone: this.state.phone,
-                animalId: this.state.animalId
+                animalId: parseInt(this.state.animalId)
             };
             OwnerManager.post(owner)
                 .then(() => this.props.history.push("/owners"));

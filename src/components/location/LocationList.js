@@ -44,7 +44,7 @@ class LocationList extends Component {
                     </button>
                 <div className="container-cards">
                     {this.state.locations.map(location =>
-                        <LocationCard key={location.id} object={location} deleteLocation={this.deleteLocation} />
+                        <LocationCard key={location.id} object={location} deleteLocation={this.deleteLocation} {...this.props}/>
                     )}
                 </div>
             </div>

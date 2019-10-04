@@ -12,7 +12,6 @@ class EmployeeForm extends Component {
         locationId: "",
         loadingStatus: false,
         locationList: [],
-        animalList: []
     };
 
     handleFieldChange = evt => {
@@ -30,12 +29,6 @@ class EmployeeForm extends Component {
                     locationList: data
                 })
             })
-        AnimalManager.getAll()
-            .then((data) => {
-                this.setState({
-                    animalList: data
-                })
-            })
     }
 
     /*  Local method for validation, set loadingStatus, create animal 
@@ -43,14 +36,13 @@ class EmployeeForm extends Component {
     */
     constructNewEmployees = evt => {
         evt.preventDefault();
-        if (this.state.employeeName === "" || this.state.animalId === "" || this.state.locationId === "") {
-            window.alert("Please input a name, an animal, and location for hire.");
+        if (this.state.employeeName === "" || this.state.locationId === "") {
+            window.alert("Please input a name and location for hire.");
         } else {
             this.setState({ loadingStatus: true });
             const employee = {
                 employeeName: this.state.employeeName,
-                animalId: this.state.animalId,
-                locationId: this.state.locationId
+                locationId: parseInt(this.state.locationId)
             };
 
             // Create the animal and redirect user to animal list
@@ -83,15 +75,6 @@ class EmployeeForm extends Component {
                                 id="locationId">
                                 {this.state.locationList.map((datafile) =>
                                     <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.locationName)}</option>
-                                )}
-                            </select>
-                            <p>Select Animal:</p>
-                            <select
-                                required
-                                onChange={this.handleFieldChange}
-                                id="animalId">
-                                {this.state.animalList.map((datafile) =>
-                                    <option key={datafile.id} value={datafile.id}>{firstLetterCase(datafile.name)}</option>
                                 )}
                             </select>
                         </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import LocationManager from "../../modules/LocationManager"
 import "./LocationForm.css"
 
-class AnimalEditForm extends Component {
+class LocationEditForm extends Component {
     //set the initial state
     state = {
       locationName: "",
@@ -51,25 +51,25 @@ class AnimalEditForm extends Component {
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="animalName"
-                value={this.state.animalName}
+                id="locationName"
+                value={this.state.locationName}
               />
-              <label htmlFor="animalName">Animal name</label>
+              <label htmlFor="locationName">Location Name</label>
 
               <input
                 type="text"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="breed"
-                value={this.state.breed}
+                id="phone"
+                value={this.state.phone}
               />
-              <label htmlFor="breed">Breed</label>
+              <label htmlFor="phone">Phone Number</label>
             </div>
             <div className="alignRight">
               <button
                 type="button" disabled={this.state.loadingStatus}
-                onClick={this.updateExistingAnimal}
+                onClick={this.updateExistingLocation}
                 className="btn btn-primary"
               >Submit</button>
             </div>
@@ -80,4 +80,4 @@ class AnimalEditForm extends Component {
     }
 }
 
-export default AnimalEditForm
+export default LocationEditForm

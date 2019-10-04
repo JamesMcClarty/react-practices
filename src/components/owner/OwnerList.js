@@ -44,7 +44,7 @@ render(){
                     Add Owner
                     </button>
         <div className="container-cards">
-            {this.state.owners.map(owner => <OwnerCard key = {owner.id} owner = {owner} deleteOwner = {this.deleteOwner}/>)}
+            {this.state.owners.map(owner => <OwnerCard key = {owner.id} owner = {owner} deleteOwner = {this.deleteOwner} {...this.props}/>)}
         </div>
         </div>
     )

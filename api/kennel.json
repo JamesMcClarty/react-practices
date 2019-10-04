@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Meg Marie",
-      "breed": "Shiba Inu"
+      "breed": "German Shepard"
     },
     {
       "id": 2,
@@ -26,7 +26,7 @@
       "id": 2,
       "name": "Megan",
       "phone": "555-9653",
-      "animalId": 1
+      "animalId": "3"
     },
     {
       "id": 1,
@@ -44,8 +44,8 @@
   "locations": [
     {
       "id": 1,
-      "locationName": "north Nashville",
-      "phone": "555-1234"
+      "locationName": "East Nashville",
+      "phone": "555-5555"
     },
     {
       "id": 2,
@@ -67,15 +67,18 @@
     },
     {
       "id": 2,
-      "employeeName": "Johnny Cage",
-      "animalId": 1,
+      "employeeName": "Hanzo Hasashi",
+      "locationId": "3"
+    },
+    {
+      "id": 4,
+      "employeeName": "Jackson Briggs",
       "locationId": 2
     },
     {
-      "employeeName": "Jackson Briggs",
-      "animalId": 2,
-      "locationId": 2,
-      "id": 4
+      "id": 5,
+      "employeeName": "Hashman",
+      "locationId": 3
     }
   ]
 }
