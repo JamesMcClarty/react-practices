@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter} from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import './NavBar.css'
 
 class NavBar extends Component {
@@ -9,26 +9,41 @@ class NavBar extends Component {
     this.props.history.push('/');
   }
 
-  render(){
+  handleSearch = event => {
+    if(event.keyCode === 13){
+      this.props.history.push(`/search/${event.target.value}`)
+    }
+  }
+
+  render() {
     return (
       <header>
-      <h1 className="site-title">Student Kennels<br />
+        <h1 className="site-title">Student Kennels<br />
           <small>Loving care when you're not there.</small>
-      </h1>
-      <nav>
+        </h1>
+        <nav>
           <ul className="container">
             <li><Link className="nav-link" to="/">Home</Link></li>
             {(this.props.user) ?
-                <li><Link className="nav-link" to="/animals">Animals</Link></li>
-            : null }
+              <li><Link className="nav-link" to="/animals">Animals</Link></li>
+              : null}
             <li><Link className="nav-link" to="/locations">Locations</Link></li>
             {(this.props.user) ?
-                <>
+              <>
                 <li><Link className="nav-link" to="/employees">Employees</Link></li>
                 <li><Link className="nav-link" to="/owners">Owners</Link></li>
+                <li>
+                  <input
+                    type="text"
+                    required
+                    id="search"
+                    placeholder="Search Here!"
+                    onKeyPress = {this.handleSearch}
+                  />
+                </li>
                 <li><span className="nav-link" onClick={this.handleLogout}>Logout</span></li>
-                </>
-                : <li><Link className="nav-link" to="/login">Login</Link></li>
+              </>
+              : <li><Link className="nav-link" to="/login">Login</Link></li>
             }
           </ul>
         </nav>
