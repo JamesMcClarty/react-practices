@@ -4,15 +4,23 @@ import './NavBar.css'
 
 class NavBar extends Component {
 
+  state={
+    searchKeyWord: ""
+  }
+
   handleLogout = () => {
     this.props.clearUser();
     this.props.history.push('/');
   }
 
-  handleSearch = event => {
-    if(event.keyCode === 13){
-      this.props.history.push(`/search/${event.target.value}`)
-    }
+  handleSearch = () => {
+    console.log("pushing")
+    this.props.history.push(`/search/${this.state.searchKeyWord}`)
+  }
+
+  updateSearch = event => {
+    console.log(event.target.value)
+      this.setState({searchKeyWord:event.target.value})
   }
 
   render() {
@@ -38,9 +46,9 @@ class NavBar extends Component {
                     required
                     id="search"
                     placeholder="Search Here!"
-                    onKeyPress = {this.handleSearch}
-                  />
+                    onKeyUp = {this.updateSearch}></input>
                 </li>
+                <li><button id = "submit-button" onClick = {this.handleSearch}>Submit</button></li>
                 <li><span className="nav-link" onClick={this.handleLogout}>Logout</span></li>
               </>
               : <li><Link className="nav-link" to="/login">Login</Link></li>

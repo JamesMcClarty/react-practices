@@ -131,7 +131,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          path="/search/:searchKeyWord(\d+)" render={props => {
+          path="/search" render={props => {
             return <SearchResults {...props} />
           }}
         />
